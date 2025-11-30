@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imdf_net_1760027458.7232673" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imdf_net_1760027458.7232673</text>
+    </name>
+    <page id="n0">
+      <place id="p_17">
+        <name>
+          <text>p_17</text>
+        </name>
+      </place>
+      <place id="p_13">
+        <name>
+          <text>p_13</text>
+        </name>
+      </place>
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <place id="p_7">
+        <name>
+          <text>p_7</text>
+        </name>
+      </place>
+      <place id="p_23">
+        <name>
+          <text>p_23</text>
+        </name>
+      </place>
+      <place id="p_18">
+        <name>
+          <text>p_18</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_8">
+        <name>
+          <text>p_8</text>
+        </name>
+      </place>
+      <place id="p_12">
+        <name>
+          <text>p_12</text>
+        </name>
+      </place>
+      <place id="p_22">
+        <name>
+          <text>p_22</text>
+        </name>
+      </place>
+      <transition id="351b943d-ddf3-48a2-8edc-4ec0f125fff6">
+        <name>
+          <text>S_to_C_ACK+PSH</text>
+        </name>
+      </transition>
+      <transition id="tau_1">
+        <name>
+          <text>tau_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="45429888-c4a8-439c-9430-c2af95d943b4"/>
+      </transition>
+      <transition id="skip_5">
+        <name>
+          <text>skip_5</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="ada65514-437e-4d78-a463-0a01136ef16c"/>
+      </transition>
+      <transition id="tauJoin_4">
+        <name>
+          <text>tauJoin_4</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="524bf63b-58e2-4dbf-9824-166f38b0dee2"/>
+      </transition>
+      <transition id="init_loop_6">
+        <name>
+          <text>init_loop_6</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="c862d519-020e-4767-b29a-0e85d6e51137"/>
+      </transition>
+      <transition id="skip_12">
+        <name>
+          <text>skip_12</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="41cff059-8066-4740-81c9-c9ecb589ed76"/>
+      </transition>
+      <transition id="8546ad4d-1523-45ac-ac55-f2d86bb0860e">
+        <name>
+          <text>C_to_S_ACK+PSH</text>
+        </name>
+      </transition>
+      <transition id="skip_16">
+        <name>
+          <text>skip_16</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="edbb82f0-145e-44ee-bcd4-742a75eed96e"/>
+      </transition>
+      <transition id="9ee1d00e-bd30-45a9-b287-f1ab12c39e40">
+        <name>
+          <text>C_to_S_ACK</text>
+        </name>
+      </transition>
+      <transition id="skip_8">
+        <name>
+          <text>skip_8</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="fd461c39-457d-4272-bd73-1e8b1586702e"/>
+      </transition>
+      <transition id="skip_9">
+        <name>
+          <text>skip_9</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="9f411210-2629-43f1-8f10-eee2853acbd2"/>
+      </transition>
+      <transition id="0939d664-d1f6-446e-8f29-f348fcc32b44">
+        <name>
+          <text>S_to_C_ACK</text>
+        </name>
+      </transition>
+      <transition id="skip_20">
+        <name>
+          <text>skip_20</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="3fdffb4d-6677-42ab-adaa-c9d988ce8d73"/>
+      </transition>
+      <arc id="2653265964688" source="p_8" target="skip_8"/>
+      <arc id="2653265956752" source="source" target="tau_1"/>
+      <arc id="2653265883024" source="p_13" target="tauJoin_4"/>
+      <arc id="2653265883920" source="p_18" target="tauJoin_4"/>
+      <arc id="2653265885200" source="tau_1" target="p_22"/>
+      <arc id="2653265883792" source="tauJoin_4" target="sink"/>
+      <arc id="2653265885968" source="tau_1" target="p_17"/>
+      <arc id="2653265883344" source="skip_12" target="p_12"/>
+      <arc id="2653265885328" source="tau_1" target="p_12"/>
+      <arc id="2653265955216" source="p_23" target="skip_20"/>
+      <arc id="2653265967760" source="p_12" target="351b943d-ddf3-48a2-8edc-4ec0f125fff6"/>
+      <arc id="2653265883856" source="p_23" target="tauJoin_4"/>
+      <arc id="2653265967888" source="351b943d-ddf3-48a2-8edc-4ec0f125fff6" target="p_13"/>
+      <arc id="2653265906704" source="p_18" target="skip_16"/>
+      <arc id="2653265886480" source="tau_1" target="p_5"/>
+      <arc id="2653265884752" source="skip_20" target="p_22"/>
+      <arc id="2653265887120" source="skip_16" target="p_17"/>
+      <arc id="2653265909712" source="p_22" target="0939d664-d1f6-446e-8f29-f348fcc32b44"/>
+      <arc id="2653265963984" source="p_7" target="9ee1d00e-bd30-45a9-b287-f1ab12c39e40"/>
+      <arc id="2653265963088" source="p_5" target="init_loop_6"/>
+      <arc id="2653265964112" source="9ee1d00e-bd30-45a9-b287-f1ab12c39e40" target="p_8"/>
+      <arc id="2653265965392" source="p_8" target="skip_9"/>
+      <arc id="2653265963216" source="init_loop_6" target="p_7"/>
+      <arc id="2653265965520" source="skip_9" target="p_6"/>
+      <arc id="2653265877072" source="skip_8" target="p_7"/>
+      <arc id="2653265968464" source="p_13" target="skip_12"/>
+      <arc id="2653265961232" source="p_6" target="tauJoin_4"/>
+      <arc id="2653265909840" source="0939d664-d1f6-446e-8f29-f348fcc32b44" target="p_23"/>
+      <arc id="2653265906000" source="p_17" target="8546ad4d-1523-45ac-ac55-f2d86bb0860e"/>
+      <arc id="2653265906128" source="8546ad4d-1523-45ac-ac55-f2d86bb0860e" target="p_18"/>
+      <arc id="2653265962000" source="p_5" target="skip_5"/>
+      <arc id="2653265962256" source="skip_5" target="p_6"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
