@@ -25,3 +25,7 @@ The method runs by executing the DOS user_similarity_experimentation.bat script.
 - The noise threshold to use during process discovery (noise_threshold)
 
 Once the data has been placed and the variables correctly set, the script executes the two "event_log_extraction.py" and "process_discovery.py" scripts in sequence, resulting in as many event logs and Petri nets as states and users. The results are collected under the "Results" folder.
+
+# Classification experiment
+
+This repository also contains the results of a classification experiment, with related diagrams, against the network data of Clash Royale and Rocket League. The classification experiment can be found under the "Classification experiment" folder. The quantitative results of the experiment can be found under the AnalysisResults folder, which contains the cosine similarity, intersection, and AUC measures for each window length-state space configuration.
