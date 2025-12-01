@@ -13,6 +13,8 @@ Please note that the list above is not comprehensive and there could be other re
 ## Data
 The data used in this implementation comes from ".pcap" files recording the network traffic data of individual users' video game sessions. For each user, identified by a local IP, several video game sessions are recorded. To work, the ".pcap" files of each user must be collected under a dedicated folder within the "Input/ELE" directory. For example, if a user has IP 192.168.0.2, a directory named "192.168.0.2" with (possibly multiple) ".pcap" files must be in place.
 
+Some example data can be found at: https://doi.org/10.5281/zenodo.17772680
+
 # Execution instructions and project description
 
 The method runs by executing the DOS user_similarity_experimentation.bat script. This script includes experimental parameters to set: 
