@@ -36,6 +36,14 @@ The script cleans the environment and prepares the Results folder. Then, it call
 
 This repository also contains the results of a classification experiment against the network data of Clash Royale and Rocket League. The classification experiment can be found under the "Classification experiment" folder. This folder contains two scripts: execute_experiment_processmining.bat and execute_experiment_other.bat. The first script applies process mining-based classification of Clash Royale and Rocket League traffic. In particular, for each run, it copies the content of FrameworkResults for the selected combination of window size and number of clusters under Classification/Input. Then, it executes evaluation_processmining.py, which implements the logic for classifying segments of Clash Royale and Rocket League traffic. The execute_experiment_other.bat script has a similar objective, but instead applies other one-class classifiers to compare the results with the process mining-based classification. All the results of the execution of the scripts can be found under the AnalysisResults folder.
 
+# Plot and data analysis
+
+This repository contains some analyses performed against the results achieved from the classification experiment. In particular, the Plot and data analysis folder contains:
+
+- BarPlot folder, which contains a script that plots the probability mass functions associated with the Clash Royale and Rocket League classifications in order to determine the number of trace segments classified as unknown.
+- Petri net simplicity folder, which contains a script that calculates the arc-degree simplicity of the training Petri nets associated with the states extracted during the execution of the method.
+- StatisticalAnalysis (ProcessMining), which contains a script that performs a few statistical analyses from the classification experiment results regarding the process mining-based classification.
+- StatisticalAnalysis (Other), which contains a script that performs a few statistical analyses from the classification experiment results regarding the one-class classifiers classification.
 
 
 
