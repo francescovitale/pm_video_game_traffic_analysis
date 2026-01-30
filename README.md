@@ -14,22 +14,29 @@ Please note that the list above is not comprehensive and there could be other re
 The data used in this implementation comes from ".pcap" files recording the network traffic data of individual users' video game sessions. For each user, identified by a local IP, several video game sessions are recorded. To work, the ".pcap" files of each user must be collected under a dedicated folder within the "Input/ELE" directory. For example, if a user has IP 192.168.0.2, a directory named "192.168.0.2" with (possibly multiple) ".pcap" files must be in place.
 
 The data used in the experimentation can be found at: https://doi.org/10.5281/zenodo.17772680. The dataset contains the PCAPs collected from different devices while the gaming event was taking place. In particular, the PCAPs regard two different games: Clash Royale and Rocket League. 
+
 The Clash Royale devices correspond to the following IPs: 192.168.0.2, 192.168.0.13, 192.168.0.25, 192.168.0.29, 192.168.0.33, 192.168.0.44, 192.168.0.48, and 192.168.0.51. 
+
 The Rocket League devices correspond to the following IPs: 192.168.0.5, 192.168.0.39, 192.168.0.42, and 192.168.0.50.
 
-# Execution instructions and project description
+# Method description
 
-The method runs by executing the DOS user_similarity_experimentation.bat script. This script includes experimental parameters to set: 
+The method execution requires the placement of Clash Royale and Rocket League data within the corresponding folders under Data/ClashRoyale and Data/RocketLeague. The data can be downloaded from Zenodo (follow the description above).
+
+The method runs by executing the DOS framework.bat script. This script includes experimental parameters to set: 
 
 - The window size to use for feature extraction (fe_window_size)
-- The type of normalization applied to the extracted features (normalization_type)
-- The type of clustering applied to recognize events (clustering_type)
 - The number of clusters to use during clustering (n_clusters)
-- The process discovery variant (pd_variant)
 - The noise threshold to use during process discovery (noise_threshold)
+- The number of repetitions (n_reps)
 
-Once the data has been placed and the variables correctly set, the script executes the two "event_log_extraction.py" and "process_discovery.py" scripts in sequence, resulting in as many event logs and Petri nets as states and users. The results are collected under the "Results" folder.
+The script cleans the environment and prepares the Results folder. Then, it calls two further DOS scripts. The first is event_log_extraction.bat, which pre-processes the PCAP data and produces several event logs for each Clash Royale/Rocket League device. In particular, for each device, it creates as many event logs as the number of clusters (i.e., the number of states). The second script is process_discovery.bat, which uses the device selected as the training Clash Royale device to extract as many Petri nets as the number of clusters. All the results from each run will be saved under the Results folder.
 
 # Classification experiment
 
-This repository also contains the results of a classification experiment, with related diagrams, against the network data of Clash Royale and Rocket League. The classification experiment can be found under the "Classification experiment" folder. The quantitative results of the experiment can be found under the AnalysisResults folder, which contains the cosine similarity, intersection, and AUC measures for each window length-state space configuration.
+This repository also contains the results of a classification experiment against the network data of Clash Royale and Rocket League. The classification experiment can be found under the "Classification experiment" folder. This folder contains two scripts: execute_experiment_processmining.bat and execute_experiment_other.bat. The first script applies process mining-based classification of Clash Royale and Rocket League traffic. In particular, for each run, it copies the content of FrameworkResults for the selected combination of window size and number of clusters under Classification/Input. Then, it executes evaluation_processmining.py, which implements the logic for classifying segments of Clash Royale and Rocket League traffic. The execute_experiment_other.bat script has a similar objective, but instead applies other one-class classifiers to compare the results with the process mining-based classification. All the results of the execution of the scripts can be found under the AnalysisResults folder.
+
+
+
+
+
