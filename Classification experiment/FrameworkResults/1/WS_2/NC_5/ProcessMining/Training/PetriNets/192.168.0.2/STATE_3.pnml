@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imdf_net_1769682616.4084656" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imdf_net_1769682616.4084656</text>
+    </name>
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <transition id="tau_1">
+        <name>
+          <text>tau_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="0c79236c-559a-4044-bc92-1a5bc4864755"/>
+      </transition>
+      <transition id="04f6d0a5-c852-4377-bd64-f79f2ac6c640">
+        <name>
+          <text>S_to_C_ACK</text>
+        </name>
+      </transition>
+      <transition id="skip_5">
+        <name>
+          <text>skip_5</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="278c833f-a57d-4c80-8b4e-cfb4fe008296"/>
+      </transition>
+      <transition id="skip_6">
+        <name>
+          <text>skip_6</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="b41f9f13-ba5f-4d22-b937-7d090278e829"/>
+      </transition>
+      <arc id="2116869314128" source="p_6" target="skip_6"/>
+      <arc id="2116869317840" source="source" target="tau_1"/>
+      <arc id="2116869314768" source="skip_6" target="sink"/>
+      <arc id="2116869315920" source="tau_1" target="p_5"/>
+      <arc id="2116869312720" source="p_5" target="04f6d0a5-c852-4377-bd64-f79f2ac6c640"/>
+      <arc id="2116869312848" source="04f6d0a5-c852-4377-bd64-f79f2ac6c640" target="p_6"/>
+      <arc id="2116869313424" source="p_6" target="skip_5"/>
+      <arc id="2116869315024" source="skip_5" target="p_5"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

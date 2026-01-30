@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imdf_net_1769687600.6050591" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imdf_net_1769687600.6050591</text>
+    </name>
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_5">
+        <name>
+          <text>p_5</text>
+        </name>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_6">
+        <name>
+          <text>p_6</text>
+        </name>
+      </place>
+      <transition id="c563c8dd-5ba4-4f13-b37e-6689a5a1cdb8">
+        <name>
+          <text>C_to_S_ACK+PSH</text>
+        </name>
+      </transition>
+      <transition id="skip_2">
+        <name>
+          <text>skip_2</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="e4a502c6-7f0e-4c01-82c8-a3e89bc1ba93"/>
+      </transition>
+      <transition id="init_loop_3">
+        <name>
+          <text>init_loop_3</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="5fdadca0-f31e-4a6b-8056-09897f5be716"/>
+      </transition>
+      <transition id="81944100-9084-4a1e-acad-573a1d5595c1">
+        <name>
+          <text>S_to_C_ACK</text>
+        </name>
+      </transition>
+      <transition id="skip_5">
+        <name>
+          <text>skip_5</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="d0c0537f-1458-40fa-aa0b-f88ae4d42b6e"/>
+      </transition>
+      <transition id="skip_6">
+        <name>
+          <text>skip_6</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="a77e663f-a783-462b-83ae-19e27b2e53a0"/>
+      </transition>
+      <arc id="1867315356304" source="p_6" target="skip_6"/>
+      <arc id="1867315356752" source="skip_5" target="p_5"/>
+      <arc id="1867315356880" source="skip_6" target="sink"/>
+      <arc id="1867315353616" source="source" target="c563c8dd-5ba4-4f13-b37e-6689a5a1cdb8"/>
+      <arc id="1867315189776" source="source" target="skip_2"/>
+      <arc id="1867315189904" source="skip_2" target="p_4"/>
+      <arc id="1867315353808" source="c563c8dd-5ba4-4f13-b37e-6689a5a1cdb8" target="p_4"/>
+      <arc id="1867315354320" source="p_4" target="init_loop_3"/>
+      <arc id="1867315354448" source="init_loop_3" target="p_5"/>
+      <arc id="1867315355088" source="p_5" target="81944100-9084-4a1e-acad-573a1d5595c1"/>
+      <arc id="1867315355216" source="81944100-9084-4a1e-acad-573a1d5595c1" target="p_6"/>
+      <arc id="1867315355728" source="p_6" target="skip_5"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="imdf_net_1769694170.68576" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>imdf_net_1769694170.68576</text>
+    </name>
+    <page id="n0">
+      <place id="source">
+        <name>
+          <text>source</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="p_3">
+        <name>
+          <text>p_3</text>
+        </name>
+      </place>
+      <place id="sink">
+        <name>
+          <text>sink</text>
+        </name>
+      </place>
+      <place id="p_4">
+        <name>
+          <text>p_4</text>
+        </name>
+      </place>
+      <transition id="skip_1">
+        <name>
+          <text>skip_1</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="5349c05a-4c59-45a7-b48a-27fe6e60eaa0"/>
+      </transition>
+      <transition id="a3731380-4808-4de3-9ac1-a87d17efe19e">
+        <name>
+          <text>C_to_S_SYN</text>
+        </name>
+      </transition>
+      <transition id="973b77e0-39ab-42c7-961e-51f3ac3a735d">
+        <name>
+          <text>S_to_C_SYN+ACK</text>
+        </name>
+      </transition>
+      <transition id="4d81a1b4-a6df-4cb7-8af2-65f58ac0e707">
+        <name>
+          <text>C_to_S_ACK</text>
+        </name>
+      </transition>
+      <transition id="skip_2">
+        <name>
+          <text>skip_2</text>
+        </name>
+        <toolspecific tool="ProM" version="6.4" activity="$invisible$" localNodeID="abc01d28-8ab0-441b-965e-f9a8941b14d6"/>
+      </transition>
+      <arc id="2610256057360" source="source" target="skip_1"/>
+      <arc id="2610256062992" source="source" target="4d81a1b4-a6df-4cb7-8af2-65f58ac0e707"/>
+      <arc id="2610256063632" source="p_3" target="a3731380-4808-4de3-9ac1-a87d17efe19e"/>
+      <arc id="2610256063120" source="4d81a1b4-a6df-4cb7-8af2-65f58ac0e707" target="p_3"/>
+      <arc id="2610256062672" source="skip_1" target="p_3"/>
+      <arc id="2610256063760" source="a3731380-4808-4de3-9ac1-a87d17efe19e" target="p_4"/>
+      <arc id="2610256064144" source="p_4" target="skip_2"/>
+      <arc id="2610256064272" source="skip_2" target="sink"/>
+      <arc id="2610256064592" source="p_4" target="973b77e0-39ab-42c7-961e-51f3ac3a735d"/>
+      <arc id="2610256064720" source="973b77e0-39ab-42c7-961e-51f3ac3a735d" target="sink"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="sink">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
